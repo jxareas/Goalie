@@ -9,8 +9,11 @@ buildscript {
     }
     dependencies {
         classpath("com.android.application:com.android.application.gradle.plugin:7.3.1")
-        classpath("com.android.tools.build:gradle:7.1.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath(BuildPlugins.TOOLS_BUILD_GRADLE)
+        classpath(BuildPlugins.KOTLIN_GRADLE_PLUGIN)
+        classpath(Dependencies.Navigation.SAFE_ARGS)
+        classpath(Dependencies.Dagger.HILT_PLUGIN)
+        classpath(Dependencies.KotlinSerialization.SERIALIZATION)
     }
 }
 

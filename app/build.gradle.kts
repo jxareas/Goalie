@@ -5,6 +5,10 @@ plugins {
     id(BuildPlugins.JETBRAINS_KOTLIN_ANDROID_PLUGIN)
     id(BuildPlugins.KOTLIN_KAPT)
     id(BuildPlugins.KTLINT)
+    id(BuildPlugins.SAFE_ARGS)
+    id(BuildPlugins.KOTLIN_PARCELIZE)
+    id(BuildPlugins.DAGGER_HILT)
+    id(BuildPlugins.KOTLIN_SERIALIZATION)
 }
 
 android {
@@ -32,6 +36,10 @@ android {
         }
         getByName("debug") {
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     compileOptions {
@@ -69,11 +77,38 @@ ktlint {
 }
 
 dependencies {
-    implementation(Dependencies.Android.KOTLIN_CORE)
+    // Android
     implementation(Dependencies.Android.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
+
+    // Testing
     testImplementation(Dependencies.Android.JUNIT)
     androidTestImplementation(Dependencies.Android.JUNIT_EXT)
     androidTestImplementation(Dependencies.Android.ESPRESSO_CORE)
+
+    // Kotlin Coroutines
+    implementation(Dependencies.Android.KOTLIN_CORE)
+    implementation(Dependencies.Android.KOTLINX_COROUTINES)
+
+    // Jetpack Navigation
+    implementation(Dependencies.Navigation.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.Navigation.NAVIGATION_UI)
+
+    // OkHttp
+    implementation(Dependencies.Network.OKHTTP_CLIENT)
+    implementation(Dependencies.Network.LOGGING_INTERCEPTOR)
+
+    // Retrofit
+    implementation(Dependencies.Network.RETROFIT)
+
+    // Dagger Hilt
+    implementation(Dependencies.Dagger.HILT)
+    kapt(Dependencies.Dagger.HILT_COMPILER)
+
+    // Coil
+    implementation(Dependencies.Coil.COIL)
+
+    // Splash Screen
+    implementation(Dependencies.Android.SPLASH_SCREEN)
 }
