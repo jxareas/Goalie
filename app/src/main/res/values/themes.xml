@@ -2,37 +2,35 @@
     <!-- Base application theme. -->
     <style name="Theme.Goalie" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!--Material shape attributes-->
-        <!--        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.TechHub.SmallComponent-->
-        <!--        </item>-->
-        <!--        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.TechHub.MediumComponent-->
-        <!--        </item>-->
-        <!--        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.TechHub.LargeComponent-->
-        <!--        </item>-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Goalie.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Goalie.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Goalie.LargeComponent
+        </item>
 
         <!--Material type attributes-->
-        <!--        <item name="textAppearanceHeadline1">@style/TextAppearance.TechHub.Headline1</item>-->
-        <!--        <item name="textAppearanceHeadline2">@style/TextAppearance.TechHub.Headline2</item>-->
-        <!--        <item name="textAppearanceHeadline3">@style/TextAppearance.TechHub.Headline3</item>-->
-        <!--        <item name="textAppearanceHeadline4">@style/TextAppearance.TechHub.Headline4</item>-->
-        <!--        <item name="textAppearanceHeadline5">@style/TextAppearance.TechHub.Headline5</item>-->
-        <!--        <item name="textAppearanceHeadline6">@style/TextAppearance.TechHub.Headline6</item>-->
-        <!--        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.TechHub.HeadlineSmall</item>-->
-        <!--        <item name="textAppearanceSubtitle1">@style/TextAppearance.TechHub.Subtitle1</item>-->
-        <!--        <item name="textAppearanceSubtitle2">@style/TextAppearance.TechHub.Subtitle2</item>-->
-        <!--        <item name="textAppearanceBody1">@style/TextAppearance.TechHub.Body1</item>-->
-        <!--        <item name="textAppearanceBody2">@style/TextAppearance.TechHub.Body2</item>-->
-        <!--        <item name="textAppearanceButton">@style/TextAppearance.TechHub.Button</item>-->
-        <!--        <item name="textAppearanceCaption">@style/TextAppearance.TechHub.Caption</item>-->
-        <!--        <item name="textAppearanceOverline">@style/TextAppearance.TechHub.Overline</item>-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Goalie.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Goalie.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Goalie.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Goalie.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Goalie.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Goalie.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Goalie.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Goalie.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Goalie.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Goalie.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Goalie.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Goalie.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Goalie.Overline</item>
 
         <!--Platform attributes-->
-<!--                <item name="android:navigationBarColor">@color/nav_bar</item>-->
-                <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
 
         <!--Default styles-->
-        <!--        <item name="colorPrimary">@color/tech_deep_orange</item>-->
-        <!--        <item name="colorOnPrimary">@color/tech_matte_black</item>-->
-        <!--        <item name="bottomNavigationStyle">@style/Widget.TechHub.BottomNavigationView</item>-->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
     </style>
 
     <style name="Goalie" parent="@style/Theme.Goalie" />

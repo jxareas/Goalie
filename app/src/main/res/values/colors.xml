@@ -69,4 +69,8 @@
     <color name="md_theme_dark_surfaceTint">#FFB2BA</color>
     <color name="md_theme_dark_outlineVariant">#524344</color>
     <color name="md_theme_dark_scrim">#000000</color>
+
+    <!--background protection for nav-bar, varied on Q+-->
+    <color name="immersive_sys_ui">#33000000</color>
+    <color name="nav_bar">@color/immersive_sys_ui</color>
 </resources>
