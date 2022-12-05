@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Regular text dimensions (body, subtitles, caption, etc -->
+    <dimen name="text_minor_60">10sp</dimen>
+    <dimen name="text_minor_80">12sp</dimen>
+    <dimen name="text_minor_100">14sp</dimen>
+    <dimen name="text_minor_125">16sp</dimen>
+
+    <!-- Large text dimensions (headings) -->
+    <dimen name="text_major_25">20sp</dimen>
+    <dimen name="text_major_50">24sp</dimen>
+    <dimen name="text_major_75">34sp</dimen>
+    <dimen name="text_major_100">48sp</dimen>
+    <dimen name="text_major_150">60sp</dimen>
+    <dimen name="text_major_200">96sp</dimen>
+
+    <!-- Regular text line heights -->
+    <dimen name="line_height_minor_70">16sp</dimen>
+    <dimen name="line_height_minor_80">20sp</dimen>
+    <dimen name="line_height_minor_100">24sp</dimen>
+
+    <!-- Large text line heights -->
+    <dimen name="line_height_major_25">24sp</dimen>
+    <dimen name="line_height_major_50">36sp</dimen>
+    <dimen name="line_height_major_100">56sp</dimen>
+    <dimen name="line_height_major_150">72sp</dimen>
+    <dimen name="line_height_major_200">112sp</dimen>
+
+    <!-- Line spacing extra -->
+    <dimen name="line_spacing_extra_50">2sp</dimen>
+    <dimen name="line_spacing_extra_100">4sp</dimen>
+
+    <!-- Button heights -->
+    <dimen name="button_height_major_100">36sp</dimen>
+</resources>
