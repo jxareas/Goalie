@@ -51,6 +51,10 @@ android {
         jvmTarget = "11"
     }
 
+    android.sourceSets.all {
+        kotlin.srcDir("src/$name/kotlin")
+    }
+
     packagingOptions {
         resources.excludes.add("META-INF/LICENSE.txt")
         resources.excludes.add("META-INF/NOTICE.txt")
