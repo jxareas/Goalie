@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.worldcup.WorldCupFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_indicator"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello" />
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackCornerRadius="8dp" />
 
-</FrameLayout>
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_indicator" />
+</androidx.constraintlayout.widget.ConstraintLayout>
