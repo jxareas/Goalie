@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/worldCupFragment">
 
+    <fragment
+        android:id="@+id/worldCupFragment"
+        android:name="com.jxareas.goalie.ui.worldcup.WorldCupFragment"
+        android:label="fragment_world_cup"
+        tools:layout="@layout/fragment_world_cup" />
 </navigation>
