@@ -13,19 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.jxareas.goalie.databinding.FragmentWorldCupBinding
 import com.jxareas.goalie.utils.ScoreBatWebUtils
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class WorldCupFragment : Fragment() {
 
-    private var _binding: FragmentWorldCupBinding? = null
-    private val binding: FragmentWorldCupBinding
-        get() = _binding!!
+    private lateinit var binding: FragmentWorldCupBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupOnBackPressedDispatcher()
-    }
 
     private fun setupOnBackPressedDispatcher() {
         val callback: OnBackPressedCallback =
@@ -38,7 +30,7 @@ class WorldCupFragment : Fragment() {
                 }
 
             }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun onCreateView(
@@ -48,37 +40,33 @@ class WorldCupFragment : Fragment() {
     ): View =
         FragmentWorldCupBinding
             .inflate(inflater, container, false)
-            .also { _binding = it }.root
+            .also { binding = it }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupWebView()
     }
 
-    private fun setupWebView() = binding.webView.apply {
+    private fun setupWebView() = binding.webView.run {
         settings.javaScriptEnabled = true
         settings.loadWithOverviewMode = true
         settings.useWideViewPort = true
         webViewClient = object : WebViewClient() {
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                binding.progressIndicator.isVisible = true
                 super.onPageStarted(view, url, favicon)
+                binding.progressIndicator.isVisible = true
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                binding.progressIndicator.isVisible = false
                 super.onPageFinished(view, url)
+                binding.progressIndicator.isVisible = false
             }
         }
 
         loadDataWithBaseURL(null, ScoreBatWebUtils.websiteData, "text/html", "UTF-8", null)
-
+        setupOnBackPressedDispatcher()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
 }

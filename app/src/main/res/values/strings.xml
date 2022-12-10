@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Goalie</string>
+    <string name="live_scores">Live Scores</string>
+    <string name="world_cup">World Cup</string>
 </resources>

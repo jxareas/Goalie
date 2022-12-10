@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/liveScoresFragment"
+        android:icon="@drawable/ic_field"
+        android:title="@string/live_scores"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/worldCupFragment"
+        android:icon="@drawable/ic_trophy"
+        android:title="@string/world_cup"
+        app:showAsAction="ifRoom" />
+
+
+
+
+</menu>
