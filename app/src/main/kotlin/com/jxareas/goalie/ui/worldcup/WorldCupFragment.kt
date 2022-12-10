@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.jxareas.goalie.databinding.FragmentWorldCupBinding
-import com.jxareas.goalie.utils.ScoreBatWebUtils
+import com.jxareas.goalie.utils.WebUtils
 
 class WorldCupFragment : Fragment() {
 
@@ -64,7 +64,7 @@ class WorldCupFragment : Fragment() {
             }
         }
 
-        loadDataWithBaseURL(null, ScoreBatWebUtils.websiteData, "text/html", "UTF-8", null)
+        loadDataWithBaseURL(null, WebUtils.websiteData, "text/html", "UTF-8", null)
         setupOnBackPressedDispatcher()
     }
 
