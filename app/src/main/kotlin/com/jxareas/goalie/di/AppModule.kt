@@ -1,7 +1,7 @@
 package com.jxareas.goalie.di
 
 import com.jxareas.goalie.BuildConfig
-import com.jxareas.goalie.utils.ScoreBatToken
+import com.jxareas.goalie.utils.WidgetToken
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideScoreBatWidgetToken() : ScoreBatToken =
-        ScoreBatToken(token = BuildConfig.SCORE_BAT_TOKEN)
+    fun provideToken() : WidgetToken =
+        WidgetToken(token = BuildConfig.SCORE_BAT_TOKEN)
 
 }

@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.scores.LiveScoresFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_indicator"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello there people!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackCornerRadius="8dp" />
 
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_indicator" />
 </androidx.constraintlayout.widget.ConstraintLayout>

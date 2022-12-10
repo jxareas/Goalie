@@ -12,25 +12,28 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.jxareas.goalie.databinding.FragmentWorldCupBinding
-import com.jxareas.goalie.utils.WebUtils
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class WorldCupFragment : Fragment() {
 
     private lateinit var binding: FragmentWorldCupBinding
 
+    @Inject
+    internal lateinit var worldCupWidgetProvider: WorldCupWidgetProvider
 
     private fun setupOnBackPressedDispatcher() {
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    if (binding.webView.canGoBack())
-                        binding.webView.goBack()
-                    else
-                        findNavController().navigateUp()
-                }
-
+        val onBackPressed = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (binding.webView.canGoBack())
+                    binding.webView.goBack()
+                else
+                    findNavController().navigateUp()
             }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
     }
 
     override fun onCreateView(
@@ -64,7 +67,7 @@ class WorldCupFragment : Fragment() {
             }
         }
 
-        loadDataWithBaseURL(null, WebUtils.websiteData, "text/html", "UTF-8", null)
+        loadDataWithBaseURL(null, worldCupWidgetProvider.websiteData, "text/html", "UTF-8", null)
         setupOnBackPressedDispatcher()
     }
 

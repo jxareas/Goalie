@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onNavigateUp(): Boolean =
-        super.onNavigateUp() || navController.navigateUp()
+        navController.navigateUp() || super.onSupportNavigateUp()
 
 
 }
