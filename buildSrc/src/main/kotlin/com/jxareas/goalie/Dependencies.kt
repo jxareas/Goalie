@@ -73,6 +73,14 @@ object Dependencies {
 
         private const val RETROFIT_VERSION = "2.9.0"
         const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+        const val MOSHI_CONVERTER =
+            "com.squareup.retrofit2:converter-moshi:$RETROFIT_VERSION"
+    }
+
+    object Moshi {
+        private const val MOSHI_VERSION = "1.13.0"
+        const val MOSHI = "com.squareup.moshi:moshi-kotlin:$MOSHI_VERSION"
+
     }
 
     object Shimmer {

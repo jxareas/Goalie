@@ -1,4 +1,3 @@
-
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
@@ -114,6 +113,7 @@ dependencies {
 
     // Retrofit
     implementation(Dependencies.Network.RETROFIT)
+    implementation(Dependencies.Network.MOSHI_CONVERTER)
 
     // Dagger Hilt
     implementation(Dependencies.Dagger.HILT)
@@ -127,4 +127,7 @@ dependencies {
 
     // Shimmer
     implementation(Dependencies.Shimmer.SHIMMER)
+
+    // Moshi
+    implementation(Dependencies.Moshi.MOSHI)
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/worldCupFragment"
-        android:name="com.jxareas.goalie.features.worldcup.WorldCupFragment"
+        android:name="com.jxareas.goalie.features.worldcup.presentation.WorldCupFragment"
         android:label="fragment_world_cup"
         tools:layout="@layout/fragment_world_cup" />
     <fragment
@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_live_scores" />
     <fragment
         android:id="@+id/videosFragment"
-        android:name="com.jxareas.goalie.features.videos.VideosFragment"
+        android:name="com.jxareas.goalie.features.videos.presentation.VideosFragment"
         android:label="VideosFragment"
         tools:layout="@layout/fragment_videos" />
 </navigation>

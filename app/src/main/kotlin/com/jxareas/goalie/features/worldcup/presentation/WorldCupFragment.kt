@@ -1,4 +1,4 @@
-package com.jxareas.goalie.features.worldcup
+package com.jxareas.goalie.features.worldcup.presentation
 
 import android.graphics.Bitmap
 import android.os.Bundle
