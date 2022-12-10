@@ -73,8 +73,20 @@
         <item name="backgroundTint">?attr/colorSurfaceVariant</item>
         <item name="colorSecondaryContainer">?attr/colorTertiaryContainer</item>
         <item name="itemTextColor">?attr/colorOnPrimaryContainer</item>
-        <item name="labelVisibilityMode">selected</item>
+        <item name="labelVisibilityMode">labeled</item>
         <item name="itemIconTint">@color/icon_tint_selector</item>
+        <item name="itemTextAppearanceActive">@style/Widget.Goalie.BottomNavigationView.ActiveItemTextAppearance</item>
+        <item name="itemTextAppearanceInactive">@style/Widget.Goalie.BottomNavigationView.InactiveItemTextAppearance</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView.InactiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
     </style>
 
     <style name="Widget.Goalie.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
