@@ -1,4 +1,4 @@
-package com.jxareas.goalie.features.videos.presentation
+package com.jxareas.goalie.features.videos.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
