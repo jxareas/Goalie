@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Goalie" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Goalie" parent="Theme.Material3.DayNight.NoActionBar">
         <!--Material shape attributes-->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Goalie.SmallComponent
         </item>
@@ -62,5 +62,34 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+
+        <item name="bottomNavigationStyle">@style/Widget.Goalie.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView" parent="@style/Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">
+            @style/Widget.Goalie.BottomNavigationView.ActiveIndicator
+        </item>
+        <item name="backgroundTint">?attr/colorSurfaceVariant</item>
+        <item name="colorSecondaryContainer">?attr/colorTertiaryContainer</item>
+        <item name="itemTextColor">?attr/colorOnPrimaryContainer</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@color/icon_tint_selector</item>
+        <item name="itemTextAppearanceActive">@style/Widget.Goalie.BottomNavigationView.ActiveItemTextAppearance</item>
+        <item name="itemTextAppearanceInactive">@style/Widget.Goalie.BottomNavigationView.InactiveItemTextAppearance</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView.InactiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+
+    <style name="Widget.Goalie.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?attr/colorPrimaryVariant</item>
     </style>
 </resources>

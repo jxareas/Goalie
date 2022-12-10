@@ -1,3 +1,5 @@
+
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
@@ -24,6 +26,10 @@ android {
         multiDexEnabled = true
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Remember to enter a key with name SCORE_BAT_TOKEN in your local.properties file
+        val scoreBatToken: String = gradleLocalProperties(rootDir).getProperty("SCORE_BAT_TOKEN")
+        buildConfigField("String", "SCORE_BAT_TOKEN", scoreBatToken)
     }
 
     buildTypes {

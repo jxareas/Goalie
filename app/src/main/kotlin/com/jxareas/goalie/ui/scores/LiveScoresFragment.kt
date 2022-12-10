@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui.worldcup
+package com.jxareas.goalie.ui.scores
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -10,38 +10,24 @@ import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.jxareas.goalie.databinding.FragmentWorldCupBinding
+import com.jxareas.goalie.databinding.FragmentLiveScoresBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class WorldCupFragment : Fragment() {
+class LiveScoresFragment : Fragment() {
 
-    private lateinit var binding: FragmentWorldCupBinding
+    private lateinit var binding: FragmentLiveScoresBinding
 
     @Inject
-    internal lateinit var worldCupWidgetProvider: WorldCupWidgetProvider
-
-    private fun setupOnBackPressedDispatcher() {
-        val onBackPressed = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (binding.webView.canGoBack())
-                    binding.webView.goBack()
-                else
-                    findNavController().navigateUp()
-            }
-
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
-    }
+    internal lateinit var liveScoresWidgetProvider: LiveScoresWidgetProvider
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View =
-        FragmentWorldCupBinding
+        FragmentLiveScoresBinding
             .inflate(inflater, container, false)
             .also { binding = it }.root
 
@@ -67,9 +53,21 @@ class WorldCupFragment : Fragment() {
             }
         }
 
-        loadDataWithBaseURL(null, worldCupWidgetProvider.websiteData, "text/html", "UTF-8", null)
+        loadDataWithBaseURL(null, liveScoresWidgetProvider.websiteData, "text/html", "UTF-8", null)
         setupOnBackPressedDispatcher()
     }
 
+    private fun setupOnBackPressedDispatcher() {
+        val onBackPressed = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (binding.webView.canGoBack())
+                    binding.webView.goBack()
+                else
+                    requireActivity().moveTaskToBack(true)
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
+    }
 
 }

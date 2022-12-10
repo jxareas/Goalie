@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="md_theme_light_primary">#680021</color>
+    <color name="md_theme_light_primary">#ED5464</color>
     <color name="md_theme_light_primary_variant">#A7354C</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#FFD9DC</color>
