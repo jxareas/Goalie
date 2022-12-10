@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui.scores
+package com.jxareas.goalie.features.scores.presentation
 
 import com.jxareas.goalie.utils.WidgetProvider
 import com.jxareas.goalie.utils.WidgetToken

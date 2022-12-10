@@ -7,13 +7,17 @@
 
     <fragment
         android:id="@+id/worldCupFragment"
-        android:name="com.jxareas.goalie.ui.worldcup.WorldCupFragment"
+        android:name="com.jxareas.goalie.features.worldcup.WorldCupFragment"
         android:label="fragment_world_cup"
         tools:layout="@layout/fragment_world_cup" />
     <fragment
         android:id="@+id/liveScoresFragment"
-        android:name="com.jxareas.goalie.ui.scores.LiveScoresFragment"
+        android:name="com.jxareas.goalie.features.scores.presentation.LiveScoresFragment"
         android:label="LiveScoresFragment"
-        tools:layout="@layout/fragment_live_scores"
-        />
+        tools:layout="@layout/fragment_live_scores" />
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.jxareas.goalie.features.videos.VideosFragment"
+        android:label="VideosFragment"
+        tools:layout="@layout/fragment_videos" />
 </navigation>

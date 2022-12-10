@@ -124,4 +124,7 @@ dependencies {
 
     // Splash Screen
     implementation(Dependencies.Android.SPLASH_SCREEN)
+
+    // Shimmer
+    implementation(Dependencies.Shimmer.SHIMMER)
 }

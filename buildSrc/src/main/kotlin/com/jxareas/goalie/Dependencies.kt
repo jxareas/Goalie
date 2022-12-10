@@ -75,4 +75,10 @@ object Dependencies {
         const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     }
 
+    object Shimmer {
+        private const val SHIMMER_VERSION = "0.5.0"
+
+        const val SHIMMER = "com.facebook.shimmer:shimmer:$SHIMMER_VERSION"
+    }
+
 }

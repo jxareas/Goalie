@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui.worldcup
+package com.jxareas.goalie.features.worldcup
 
 import com.jxareas.goalie.utils.WidgetProvider
 import com.jxareas.goalie.utils.WidgetToken

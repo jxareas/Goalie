@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui.scores
+package com.jxareas.goalie.features.worldcup
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -10,24 +10,38 @@ import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.jxareas.goalie.databinding.FragmentLiveScoresBinding
+import androidx.navigation.fragment.findNavController
+import com.jxareas.goalie.databinding.FragmentWorldCupBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class LiveScoresFragment : Fragment() {
+class WorldCupFragment : Fragment() {
 
-    private lateinit var binding: FragmentLiveScoresBinding
+    private lateinit var binding: FragmentWorldCupBinding
 
     @Inject
-    internal lateinit var liveScoresWidgetProvider: LiveScoresWidgetProvider
+    internal lateinit var worldCupWidgetProvider: WorldCupWidgetProvider
+
+    private fun setupOnBackPressedDispatcher() {
+        val onBackPressed = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (binding.webView.canGoBack())
+                    binding.webView.goBack()
+                else
+                    findNavController().navigateUp()
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View =
-        FragmentLiveScoresBinding
+        FragmentWorldCupBinding
             .inflate(inflater, container, false)
             .also { binding = it }.root
 
@@ -53,21 +67,9 @@ class LiveScoresFragment : Fragment() {
             }
         }
 
-        loadDataWithBaseURL(null, liveScoresWidgetProvider.websiteData, "text/html", "UTF-8", null)
+        loadDataWithBaseURL(null, worldCupWidgetProvider.websiteData, "text/html", "UTF-8", null)
         setupOnBackPressedDispatcher()
     }
 
-    private fun setupOnBackPressedDispatcher() {
-        val onBackPressed = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (binding.webView.canGoBack())
-                    binding.webView.goBack()
-                else
-                    requireActivity().moveTaskToBack(true)
-            }
-
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressed)
-    }
 
 }

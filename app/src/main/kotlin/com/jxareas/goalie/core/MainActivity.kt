@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui
+package com.jxareas.goalie.core
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
