@@ -1,6 +1,8 @@
 package com.jxareas.goalie.di
 
 import com.jxareas.goalie.BuildConfig
+import com.jxareas.goalie.common.DispatcherProvider
+import com.jxareas.goalie.common.DispatcherProviderImpl
 import com.jxareas.goalie.common.utils.ApiVideoToken
 import com.jxareas.goalie.common.utils.ApiWidgetToken
 import dagger.Module
@@ -22,6 +24,10 @@ object AppModule {
     @Singleton
     fun provideVideoToken(): ApiVideoToken =
         ApiVideoToken(token = BuildConfig.VIDEO_API_TOKEN)
+
+    @Provides
+    @Singleton
+    fun provideDispatchers(): DispatcherProvider = DispatcherProviderImpl
 
 
 }

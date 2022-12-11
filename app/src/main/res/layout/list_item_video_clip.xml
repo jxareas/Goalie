@@ -16,6 +16,7 @@
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_placeholder"
             app:layout_constraintTop_toTopOf="parent"

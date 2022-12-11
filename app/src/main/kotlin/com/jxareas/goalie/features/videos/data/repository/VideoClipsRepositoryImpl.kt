@@ -1,16 +1,22 @@
 package com.jxareas.goalie.features.videos.data.repository
 
+import com.jxareas.goalie.common.DispatcherProvider
 import com.jxareas.goalie.features.videos.data.dto.VideoClipDto.Companion.toVideoClipStatus
 import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
 import com.jxareas.goalie.features.videos.data.helper.NetworkResult
 import com.jxareas.goalie.features.videos.data.remote.api.ScoreBatApi
 import com.jxareas.goalie.features.videos.domain.repository.VideoClipsRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.HttpException
 import javax.inject.Inject
 
-class VideoClipsRepositoryImpl @Inject constructor(private val api: ScoreBatApi) :
+class VideoClipsRepositoryImpl @Inject constructor(
+    private val api: ScoreBatApi,
+    private val dispatchers: DispatcherProvider
+) :
     VideoClipsRepository {
     override fun getVideoClipsFlow(): Flow<NetworkResult<List<VideoClipStatus>>> = flow {
         emit(NetworkResult.Loading)
@@ -26,7 +32,8 @@ class VideoClipsRepositoryImpl @Inject constructor(private val api: ScoreBatApi)
         } catch (networkException: HttpException) {
             emit(NetworkResult.Error(networkException))
         }
-    }
+    }.buffer()
+        .flowOn(dispatchers.io)
 
 
 }

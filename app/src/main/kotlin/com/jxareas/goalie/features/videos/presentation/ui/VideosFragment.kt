@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,8 +13,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.transition.MaterialFadeThrough
 import com.jxareas.goalie.R
 import com.jxareas.goalie.databinding.FragmentVideosBinding
+import com.jxareas.goalie.features.videos.data.dto.VideoClipDto
 import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
 import com.jxareas.goalie.features.videos.data.helper.error
 import com.jxareas.goalie.features.videos.data.helper.success
@@ -39,6 +42,12 @@ class VideosFragment : Fragment() {
 
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+        exitTransition = MaterialFadeThrough()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,25 +59,29 @@ class VideosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        postponeEnterTransition().also {
+            view.doOnPreDraw { startPostponedEnterTransition() }
+        }
         setupRecyclerView()
         setupListeners()
         setupCollectors()
     }
 
     private fun setupCollectors() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.videoClips.collectLatest { videoClipsState ->
                     updateUiFromState(videoClipsState)
                     when {
-                        videoClipsState.isLoading -> submitList(VideoClipStatus.getClipStatesPlaceholder())
+                        videoClipsState.isLoading -> submitList(List(20) {
+                            VideoClipStatus(true,  VideoClipDto())
+                        })
                         videoClipsState.isSucceeded -> videoClipsState.success { listOfVideos ->
                             submitList(listOfVideos)
                         }
                         videoClipsState.isError -> videoClipsState.error {
                             showErrorView(getString(R.string.server_error))
                         }
-
                     }
                 }
             }
@@ -76,7 +89,7 @@ class VideosFragment : Fragment() {
     }
 
     private fun updateUiFromState(state: VideoClipsState) = binding.run {
-        swipeRefresh.apply {
+        swipeRefresh.run {
             isRefreshing = false
             isVisible = !state.isError
         }
