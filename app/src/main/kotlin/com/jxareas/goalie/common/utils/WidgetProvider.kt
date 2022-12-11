@@ -1,6 +1,6 @@
 package com.jxareas.goalie.common.utils
 
-abstract class WidgetProvider(private val apiToken: ApiToken) {
+abstract class WidgetProvider(private val apiWidgetToken: ApiWidgetToken) {
 
     companion object {
         private const val VIEWPORT_CONFIG =

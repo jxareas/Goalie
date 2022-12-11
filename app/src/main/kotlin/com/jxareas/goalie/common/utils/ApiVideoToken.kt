@@ -1,3 +1,3 @@
 package com.jxareas.goalie.common.utils
 
-class ApiToken(val token: String)
+class ApiVideoToken(val token : String)

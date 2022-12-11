@@ -8,10 +8,10 @@ import retrofit2.http.Query
 interface ScoreBatRetrofitApi {
 
     companion object {
-        const val BASE_URL: String = "https://www.scorebat.com/"
+        const val BASE_URL: String = "https://www.scorebat.com/video-api/v3/"
     }
 
-    @GET("video-api/v3/feed")
+    @GET("feed")
     suspend fun getVideoClips(
         @Query("token") token: String
     ): Response<VideoClipsResponse>
