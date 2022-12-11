@@ -16,6 +16,27 @@ object Dependencies {
         const val CONSTRAINT_LAYOUT =
             "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VERSION"
 
+        private const val FRAGMENT_KTX_VERSION = "1.5.5"
+        const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:$FRAGMENT_KTX_VERSION"
+
+        private const val LEGACY_SUPPORT_VERSION = "1.0.0"
+        const val LEGACY_SUPPORT = "androidx.legacy:legacy-support-v4:$LEGACY_SUPPORT_VERSION"
+
+        private const val LIFECYCLE_KTX_VERSION = "2.5.1"
+        const val LIFECYCLE_LIVE_DATA_KTX =
+            "androidx.lifecycle:lifecycle-livedata-ktx:$LIFECYCLE_KTX_VERSION"
+        const val LIFECYCLE_VIEWMODEL_KTX =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_KTX_VERSION"
+
+        private const val SPLASH_SCREEN_VERSION = "1.0.0"
+        const val SPLASH_SCREEN = "androidx.core:core-splashscreen:$SPLASH_SCREEN_VERSION"
+
+        private const val KOTLINX_COROUTINES_VERSION = "1.6.0"
+        const val KOTLINX_COROUTINES =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$KOTLINX_COROUTINES_VERSION"
+    }
+
+    object Testing {
         private const val JUNIT_VERSION = "4.13.2"
         const val JUNIT =
             "junit:junit:$JUNIT_VERSION"
@@ -28,11 +49,6 @@ object Dependencies {
         const val ESPRESSO_CORE =
             "androidx.test.espresso:espresso-core:$ESPRESSO_CORE_VERSION"
 
-        private const val SPLASH_SCREEN_VERSION = "1.0.0"
-        const val SPLASH_SCREEN = "androidx.core:core-splashscreen:$SPLASH_SCREEN_VERSION"
-
-        private const val KOTLINX_COROUTINES_VERSION = "1.6.0"
-        const val KOTLINX_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$KOTLINX_COROUTINES_VERSION"
     }
 
     object Navigation {

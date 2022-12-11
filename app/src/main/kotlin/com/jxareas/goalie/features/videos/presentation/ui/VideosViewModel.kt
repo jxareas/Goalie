@@ -2,9 +2,9 @@ package com.jxareas.goalie.features.videos.presentation.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jxareas.goalie.features.videos.data.NetworkResult
-import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
+import com.jxareas.goalie.features.videos.data.helper.NetworkResult
 import com.jxareas.goalie.features.videos.domain.repository.VideoClipsRepository
+import com.jxareas.goalie.features.videos.presentation.helper.VideoClipsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +18,7 @@ class VideosViewModel @Inject constructor(
     private val repository: VideoClipsRepository
 ) : ViewModel() {
 
-    private val _videoClips: MutableStateFlow<NetworkResult<List<VideoClipStatus>?>> =
+    private val _videoClips: MutableStateFlow<VideoClipsState> =
         MutableStateFlow(NetworkResult.Success(null))
     val videoClips = _videoClips.asStateFlow()
 

@@ -90,14 +90,15 @@ dependencies {
     implementation(Dependencies.Android.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation(Dependencies.Android.LEGACY_SUPPORT)
+    implementation(Dependencies.Android.LIFECYCLE_LIVE_DATA_KTX)
+    implementation(Dependencies.Android.LIFECYCLE_VIEWMODEL_KTX)
+    implementation(Dependencies.Android.FRAGMENT_KTX)
 
     // Testing
-    testImplementation(Dependencies.Android.JUNIT)
-    androidTestImplementation(Dependencies.Android.JUNIT_EXT)
-    androidTestImplementation(Dependencies.Android.ESPRESSO_CORE)
+    testImplementation(Dependencies.Testing.JUNIT)
+    androidTestImplementation(Dependencies.Testing.JUNIT_EXT)
+    androidTestImplementation(Dependencies.Testing.ESPRESSO_CORE)
 
     // Kotlin Coroutines
     implementation(Dependencies.Android.KOTLIN_CORE)

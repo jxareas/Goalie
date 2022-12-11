@@ -1,6 +1,6 @@
 package com.jxareas.goalie.features.videos.domain.repository
 
-import com.jxareas.goalie.features.videos.data.NetworkResult
+import com.jxareas.goalie.features.videos.data.helper.NetworkResult
 import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
 import kotlinx.coroutines.flow.Flow
 

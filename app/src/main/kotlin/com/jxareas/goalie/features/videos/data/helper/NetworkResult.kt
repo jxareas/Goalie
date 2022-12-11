@@ -1,4 +1,4 @@
-package com.jxareas.goalie.features.videos.data
+package com.jxareas.goalie.features.videos.data.helper
 
 sealed class NetworkResult<out R> {
     data class Success<out T>(val data: T) : NetworkResult<T>()
