@@ -52,7 +52,7 @@ object Dependencies {
     }
 
     object Navigation {
-        private const val NAVIGATION_VERSION = "2.4.1"
+        private const val NAVIGATION_VERSION = "2.5.2"
         const val SAFE_ARGS =
             "androidx.navigation:navigation-safe-args-gradle-plugin:$NAVIGATION_VERSION"
         const val NAVIGATION_FRAGMENT =

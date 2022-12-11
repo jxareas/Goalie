@@ -11,6 +11,7 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.transition.MaterialArcMotion
@@ -41,8 +42,15 @@ class VideosFragment : Fragment() {
 
     private val viewModel: VideosViewModel by viewModels()
 
-    private val videoClipsListAdapter = VideoClipsAdapter {
+    private val videoClipsListAdapter = VideoClipsAdapter { videoDto ->
+        handleVideoClick(videoDto)
+    }
 
+    companion object {
+        private const val EMPTY_PLACEHOLDER_LIST_SIZE = 20
+        val EMPTY_PLACEHOLDER_LIST = List(EMPTY_PLACEHOLDER_LIST_SIZE) {
+            VideoClipStatus(true, VideoClipDto())
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,13 +63,10 @@ class VideosFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View =
-        FragmentVideosBinding
-            .inflate(inflater, container, false)
-            .also { _binding = it }.root
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View = FragmentVideosBinding
+        .inflate(inflater, container, false)
+        .also { _binding = it }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -77,15 +82,16 @@ class VideosFragment : Fragment() {
                 viewModel.videoClips.collectLatest { videoClipsState ->
                     updateUiFromState(videoClipsState)
                     when {
-                        videoClipsState.isLoading -> submitList(List(20) {
-                            VideoClipStatus(true, VideoClipDto())
-                        })
-                        videoClipsState.isSucceeded -> videoClipsState.success { listOfVideos ->
-                            submitList(listOfVideos)
-                        }
-                        videoClipsState.isError -> videoClipsState.error {
-                            showErrorView(getString(R.string.server_error))
-                        }
+                        videoClipsState.isLoading ->
+                            videoClipsListAdapter.submitList(EMPTY_PLACEHOLDER_LIST)
+                        videoClipsState.isSucceeded ->
+                            videoClipsState.success { listOfVideos ->
+                                videoClipsListAdapter.submitList(listOfVideos)
+                            }
+                        videoClipsState.isError ->
+                            videoClipsState.error {
+                                showErrorView(getString(R.string.server_error))
+                            }
                     }
                 }
             }
@@ -107,9 +113,16 @@ class VideosFragment : Fragment() {
         }
     }
 
-    private fun submitList(state: List<VideoClipStatus>?) =
-        videoClipsListAdapter.submitList(state)
-
+    private fun handleVideoClick(videoDto: VideoClipDto) {
+        videoDto.videos?.let {
+            val videoUrl = videoDto.videos.first().embed
+            videoUrl?.let { url ->
+                val direction = VideosFragmentDirections
+                    .actionVideosFragmentToVideoViewerFragment(url)
+                findNavController().navigate(direction)
+            }
+        }
+    }
 
     private fun setupListeners() = binding.run {
         fab.setOnClickListener { recyclerView.smoothScrollToPosition(0) }
@@ -124,8 +137,7 @@ class VideosFragment : Fragment() {
                 super.onScrolled(recyclerView, dx, dy)
                 val firstVisibleItemPosition =
                     (layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-                if (firstVisibleItemPosition > 0)
-                    binding.fab.show()
+                if (firstVisibleItemPosition > 0) binding.fab.show()
                 else binding.fab.hide()
 
             }

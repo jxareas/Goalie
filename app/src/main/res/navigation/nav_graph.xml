@@ -10,6 +10,8 @@
         android:name="com.jxareas.goalie.features.worldcup.presentation.WorldCupFragment"
         android:label="fragment_world_cup"
         tools:layout="@layout/fragment_world_cup" />
+
+
     <fragment
         android:id="@+id/liveScoresFragment"
         android:name="com.jxareas.goalie.features.scores.presentation.LiveScoresFragment"
@@ -19,5 +21,18 @@
         android:id="@+id/videosFragment"
         android:name="com.jxareas.goalie.features.videos.presentation.ui.VideosFragment"
         android:label="VideosFragment"
-        tools:layout="@layout/fragment_videos" />
+        tools:layout="@layout/fragment_videos">
+        <action
+            android:id="@+id/action_videosFragment_to_videoViewerFragment"
+            app:destination="@id/videoViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoViewerFragment"
+        android:name="com.jxareas.goalie.features.videos.presentation.ui.webviewer.VideoViewerFragment"
+        android:label="VideoViewerFragment"
+        tools:layout="@layout/fragment_video_viewer">
+        <argument
+            android:name="videoUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>
