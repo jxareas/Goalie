@@ -4,17 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialArcMotion
+import com.google.android.material.transition.MaterialSharedAxis
 import com.jxareas.goalie.R
+import com.jxareas.goalie.common.extensions.getLong
+import com.jxareas.goalie.common.extensions.postponeAndStartTransitionOnPreDraw
 import com.jxareas.goalie.databinding.FragmentVideosBinding
 import com.jxareas.goalie.features.videos.data.dto.VideoClipDto
 import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
@@ -44,8 +47,11 @@ class VideosFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
-        exitTransition = MaterialFadeThrough()
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false).apply {
+            interpolator = FastOutSlowInInterpolator()
+            duration = resources.getLong(R.integer.material_motion_duration_long_1)
+            setPathMotion(MaterialArcMotion())
+        }
     }
 
     override fun onCreateView(
@@ -59,9 +65,7 @@ class VideosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        postponeEnterTransition().also {
-            view.doOnPreDraw { startPostponedEnterTransition() }
-        }
+        postponeAndStartTransitionOnPreDraw()
         setupRecyclerView()
         setupListeners()
         setupCollectors()
@@ -74,7 +78,7 @@ class VideosFragment : Fragment() {
                     updateUiFromState(videoClipsState)
                     when {
                         videoClipsState.isLoading -> submitList(List(20) {
-                            VideoClipStatus(true,  VideoClipDto())
+                            VideoClipStatus(true, VideoClipDto())
                         })
                         videoClipsState.isSucceeded -> videoClipsState.success { listOfVideos ->
                             submitList(listOfVideos)
