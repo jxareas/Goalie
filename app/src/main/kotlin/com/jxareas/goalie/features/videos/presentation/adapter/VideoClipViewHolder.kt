@@ -21,9 +21,12 @@ sealed class VideoClipViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder
         private val binding: ListItemVideoClipBinding,
         private val onVideoClipClicked: (VideoClipDto) -> Unit,
     ) : VideoClipViewHolder(binding) {
+
+
         fun bind(item: VideoClipStatus) = binding.run {
+            val context = root.context
+
             thumbnail.load(item.data.thumbnail) {
-                val context = root.context
                 val circularProgressDrawable = CircularProgressDrawable(context).apply {
                     strokeWidth = 5f
                     centerRadius = 30f
@@ -34,8 +37,9 @@ sealed class VideoClipViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder
             }
 
             date.text = formatDateTime(item.data.date)
-            type.text = item.data.videos?.get(0)?.title ?: ""
-            competition.text = item.data.competition
+            type.text =
+                context.getString(R.string.detail, item.data.videos?.get(0)?.title ?: "")
+            competition.text = context.getString(R.string.detail, item.data.competition)
             title.text = item.data.title
 
             root.setOnClickListener {

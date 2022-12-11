@@ -5,4 +5,5 @@
     <string name="videos">Videos</string>
     <string name="retry">Retry</string>
     <string name="server_error">Error occured when fetching data from server. Please try again</string>
+    <string name="detail">&#8226; %1$s</string>
 </resources>
