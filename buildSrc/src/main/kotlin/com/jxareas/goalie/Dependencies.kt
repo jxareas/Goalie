@@ -16,6 +16,27 @@ object Dependencies {
         const val CONSTRAINT_LAYOUT =
             "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VERSION"
 
+        private const val FRAGMENT_KTX_VERSION = "1.5.5"
+        const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:$FRAGMENT_KTX_VERSION"
+
+        private const val LEGACY_SUPPORT_VERSION = "1.0.0"
+        const val LEGACY_SUPPORT = "androidx.legacy:legacy-support-v4:$LEGACY_SUPPORT_VERSION"
+
+        private const val LIFECYCLE_KTX_VERSION = "2.5.1"
+        const val LIFECYCLE_LIVE_DATA_KTX =
+            "androidx.lifecycle:lifecycle-livedata-ktx:$LIFECYCLE_KTX_VERSION"
+        const val LIFECYCLE_VIEWMODEL_KTX =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_KTX_VERSION"
+
+        private const val SPLASH_SCREEN_VERSION = "1.0.0"
+        const val SPLASH_SCREEN = "androidx.core:core-splashscreen:$SPLASH_SCREEN_VERSION"
+
+        private const val KOTLINX_COROUTINES_VERSION = "1.6.0"
+        const val KOTLINX_COROUTINES =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$KOTLINX_COROUTINES_VERSION"
+    }
+
+    object Testing {
         private const val JUNIT_VERSION = "4.13.2"
         const val JUNIT =
             "junit:junit:$JUNIT_VERSION"
@@ -28,15 +49,10 @@ object Dependencies {
         const val ESPRESSO_CORE =
             "androidx.test.espresso:espresso-core:$ESPRESSO_CORE_VERSION"
 
-        private const val SPLASH_SCREEN_VERSION = "1.0.0"
-        const val SPLASH_SCREEN = "androidx.core:core-splashscreen:$SPLASH_SCREEN_VERSION"
-
-        private const val KOTLINX_COROUTINES_VERSION = "1.6.0"
-        const val KOTLINX_COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$KOTLINX_COROUTINES_VERSION"
     }
 
     object Navigation {
-        private const val NAVIGATION_VERSION = "2.4.1"
+        private const val NAVIGATION_VERSION = "2.5.2"
         const val SAFE_ARGS =
             "androidx.navigation:navigation-safe-args-gradle-plugin:$NAVIGATION_VERSION"
         const val NAVIGATION_FRAGMENT =
@@ -73,6 +89,20 @@ object Dependencies {
 
         private const val RETROFIT_VERSION = "2.9.0"
         const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+        const val MOSHI_CONVERTER =
+            "com.squareup.retrofit2:converter-moshi:$RETROFIT_VERSION"
+    }
+
+    object Moshi {
+        private const val MOSHI_VERSION = "1.13.0"
+        const val MOSHI = "com.squareup.moshi:moshi-kotlin:$MOSHI_VERSION"
+
+    }
+
+    object Shimmer {
+        private const val SHIMMER_VERSION = "0.5.0"
+
+        const val SHIMMER = "com.facebook.shimmer:shimmer:$SHIMMER_VERSION"
     }
 
 }

@@ -1,4 +1,3 @@
-
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
@@ -30,6 +29,9 @@ android {
         // Remember to enter a key with name SCORE_BAT_TOKEN in your local.properties file
         val scoreBatToken: String = gradleLocalProperties(rootDir).getProperty("SCORE_BAT_TOKEN")
         buildConfigField("String", "SCORE_BAT_TOKEN", scoreBatToken)
+
+        val videoApiToken: String = gradleLocalProperties(rootDir).getProperty("VIDEO_API_TOKEN")
+        buildConfigField("String", "VIDEO_API_TOKEN", videoApiToken)
     }
 
     buildTypes {
@@ -91,14 +93,15 @@ dependencies {
     implementation(Dependencies.Android.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.Android.MATERIAL)
     implementation(Dependencies.Android.CONSTRAINT_LAYOUT)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation(Dependencies.Android.LEGACY_SUPPORT)
+    implementation(Dependencies.Android.LIFECYCLE_LIVE_DATA_KTX)
+    implementation(Dependencies.Android.LIFECYCLE_VIEWMODEL_KTX)
+    implementation(Dependencies.Android.FRAGMENT_KTX)
 
     // Testing
-    testImplementation(Dependencies.Android.JUNIT)
-    androidTestImplementation(Dependencies.Android.JUNIT_EXT)
-    androidTestImplementation(Dependencies.Android.ESPRESSO_CORE)
+    testImplementation(Dependencies.Testing.JUNIT)
+    androidTestImplementation(Dependencies.Testing.JUNIT_EXT)
+    androidTestImplementation(Dependencies.Testing.ESPRESSO_CORE)
 
     // Kotlin Coroutines
     implementation(Dependencies.Android.KOTLIN_CORE)
@@ -114,6 +117,7 @@ dependencies {
 
     // Retrofit
     implementation(Dependencies.Network.RETROFIT)
+    implementation(Dependencies.Network.MOSHI_CONVERTER)
 
     // Dagger Hilt
     implementation(Dependencies.Dagger.HILT)
@@ -124,4 +128,10 @@ dependencies {
 
     // Splash Screen
     implementation(Dependencies.Android.SPLASH_SCREEN)
+
+    // Shimmer
+    implementation(Dependencies.Shimmer.SHIMMER)
+
+    // Moshi
+    implementation(Dependencies.Moshi.MOSHI)
 }

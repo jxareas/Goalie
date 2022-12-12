@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Margins -->
+    <dimen name="margin_standard">16dp</dimen>
+
     <!-- Regular text dimensions (body, subtitles, caption, etc -->
     <dimen name="text_minor_60">10sp</dimen>
     <dimen name="text_minor_80">12sp</dimen>
@@ -32,4 +35,9 @@
 
     <!-- Button heights -->
     <dimen name="button_height_major_100">36sp</dimen>
+    <dimen name="card_item_height">220dp</dimen>
+    <dimen name="margin_bottom">12dp</dimen>
+    <dimen name="margin_high">32dp</dimen>
+    <dimen name="card_item_elevation">16dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
 </resources>

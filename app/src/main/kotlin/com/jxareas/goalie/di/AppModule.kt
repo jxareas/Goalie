@@ -1,7 +1,10 @@
 package com.jxareas.goalie.di
 
 import com.jxareas.goalie.BuildConfig
-import com.jxareas.goalie.utils.WidgetToken
+import com.jxareas.goalie.common.DispatcherProvider
+import com.jxareas.goalie.common.DispatcherProviderImpl
+import com.jxareas.goalie.common.utils.ApiVideoToken
+import com.jxareas.goalie.common.utils.ApiWidgetToken
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +17,17 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideToken() : WidgetToken =
-        WidgetToken(token = BuildConfig.SCORE_BAT_TOKEN)
+    fun provideWidgetToken(): ApiWidgetToken =
+        ApiWidgetToken(token = BuildConfig.SCORE_BAT_TOKEN)
+
+    @Provides
+    @Singleton
+    fun provideVideoToken(): ApiVideoToken =
+        ApiVideoToken(token = BuildConfig.VIDEO_API_TOKEN)
+
+    @Provides
+    @Singleton
+    fun provideDispatchers(): DispatcherProvider = DispatcherProviderImpl
+
 
 }

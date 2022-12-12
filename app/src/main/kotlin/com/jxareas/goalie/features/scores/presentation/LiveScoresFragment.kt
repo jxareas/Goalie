@@ -1,4 +1,4 @@
-package com.jxareas.goalie.ui.scores
+package com.jxareas.goalie.features.scores.presentation
 
 import android.graphics.Bitmap
 import android.os.Bundle

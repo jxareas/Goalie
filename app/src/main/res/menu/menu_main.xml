@@ -14,7 +14,11 @@
         android:title="@string/world_cup"
         app:showAsAction="ifRoom" />
 
-
+    <item
+        android:id="@+id/videosFragment"
+        android:icon="@drawable/ic_tv"
+        android:title="@string/videos"
+        app:showAsAction="ifRoom" />
 
 
 </menu>
