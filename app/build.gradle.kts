@@ -29,7 +29,7 @@ android {
         // Remember to enter a key with name SCORE_BAT_TOKEN in your local.properties file
         val scoreBatToken: String = gradleLocalProperties(rootDir).getProperty("SCORE_BAT_TOKEN")
         buildConfigField("String", "SCORE_BAT_TOKEN", scoreBatToken)
-
+        // Remember to enter a key with name VIDEO_API_TOKEN in your local.properties file
         val videoApiToken: String = gradleLocalProperties(rootDir).getProperty("VIDEO_API_TOKEN")
         buildConfigField("String", "VIDEO_API_TOKEN", videoApiToken)
     }
