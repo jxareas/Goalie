@@ -19,7 +19,7 @@ import com.google.android.material.transition.MaterialSharedAxis
 import com.jxareas.goalie.R
 import com.jxareas.goalie.common.extensions.getLong
 import com.jxareas.goalie.common.extensions.postponeAndStartTransitionOnPreDraw
-import com.jxareas.goalie.databinding.FragmentVideosBinding
+import com.jxareas.goalie.databinding.FragmentVideoClipsBinding
 import com.jxareas.goalie.features.videos.data.dto.VideoClipDto
 import com.jxareas.goalie.features.videos.data.dto.VideoClipStatus
 import com.jxareas.goalie.features.videos.data.helper.error
@@ -34,10 +34,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class VideosFragment : Fragment() {
+class VideoClipsFragment : Fragment() {
 
-    private var _binding: FragmentVideosBinding? = null
-    private val binding: FragmentVideosBinding
+    private var _binding: FragmentVideoClipsBinding? = null
+    private val binding: FragmentVideoClipsBinding
         get() = _binding!!
 
     private val viewModel: VideosViewModel by viewModels()
@@ -64,7 +64,7 @@ class VideosFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = FragmentVideosBinding
+    ): View = FragmentVideoClipsBinding
         .inflate(inflater, container, false)
         .also { _binding = it }.root
 
@@ -117,7 +117,7 @@ class VideosFragment : Fragment() {
         videoDto.videos?.let {
             val videoUrl = videoDto.videos.first().embed
             videoUrl?.let { url ->
-                val direction = VideosFragmentDirections
+                val direction = VideoClipsFragmentDirections
                     .actionVideosFragmentToVideoViewerFragment(url)
                 findNavController().navigate(direction)
             }

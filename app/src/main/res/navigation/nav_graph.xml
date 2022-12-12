@@ -19,9 +19,9 @@
         tools:layout="@layout/fragment_live_scores" />
     <fragment
         android:id="@+id/videosFragment"
-        android:name="com.jxareas.goalie.features.videos.presentation.ui.VideosFragment"
+        android:name="com.jxareas.goalie.features.videos.presentation.ui.VideoClipsFragment"
         android:label="VideosFragment"
-        tools:layout="@layout/fragment_videos">
+        tools:layout="@layout/fragment_video_clips">
         <action
             android:id="@+id/action_videosFragment_to_videoViewerFragment"
             app:destination="@id/videoViewerFragment" />
