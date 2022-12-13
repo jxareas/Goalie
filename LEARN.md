@@ -27,7 +27,6 @@
 Goalie is a Football App which provides an easy and quick access to the most recent world cup matches: with their respective matches, live scores, lineups, stats and recent videos.
 
 This project is used in order to show how to use webviews in Android, as the widgets provided are embedded via iFrames.
-You can [**download the .apk debug build by going to the current release**.](https://github.com/jxareas/Goalie/releases/tag/v0.1.0-alpha)
 
 ## 📷 Screenshots 📷
 
