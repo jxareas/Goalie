@@ -40,7 +40,7 @@ class VideoClipsFragment : Fragment() {
     private val binding: FragmentVideoClipsBinding
         get() = _binding!!
 
-    private val viewModel: VideosViewModel by viewModels()
+    private val viewModel: VideoClipsViewModel by viewModels()
 
     private val videoClipsListAdapter = VideoClipsAdapter { videoDto ->
         handleVideoClick(videoDto)

@@ -112,12 +112,12 @@ dependencies {
     implementation(Dependencies.Navigation.NAVIGATION_UI)
 
     // OkHttp
-    implementation(Dependencies.Network.OKHTTP_CLIENT)
-    implementation(Dependencies.Network.LOGGING_INTERCEPTOR)
+    implementation(Dependencies.Square.OKHTTP_CLIENT)
+    implementation(Dependencies.Square.LOGGING_INTERCEPTOR)
 
     // Retrofit
-    implementation(Dependencies.Network.RETROFIT)
-    implementation(Dependencies.Network.MOSHI_CONVERTER)
+    implementation(Dependencies.Square.RETROFIT)
+    implementation(Dependencies.Square.MOSHI_CONVERTER)
 
     // Dagger Hilt
     implementation(Dependencies.Dagger.HILT)
@@ -130,8 +130,8 @@ dependencies {
     implementation(Dependencies.Android.SPLASH_SCREEN)
 
     // Shimmer
-    implementation(Dependencies.Shimmer.SHIMMER)
+    implementation(Dependencies.Facebook.SHIMMER)
 
     // Moshi
-    implementation(Dependencies.Moshi.MOSHI)
+    implementation(Dependencies.Square.MOSHI)
 }

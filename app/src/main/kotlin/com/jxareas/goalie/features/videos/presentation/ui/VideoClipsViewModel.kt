@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class VideosViewModel @Inject constructor(
+class VideoClipsViewModel @Inject constructor(
     private val repository: VideoClipsRepository
 ) : ViewModel() {
 
