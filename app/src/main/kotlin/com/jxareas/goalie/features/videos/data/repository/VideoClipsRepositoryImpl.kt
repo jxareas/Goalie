@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.HttpException
+import java.io.IOException
 import javax.inject.Inject
 
 class VideoClipsRepositoryImpl @Inject constructor(
@@ -29,7 +30,7 @@ class VideoClipsRepositoryImpl @Inject constructor(
             } ?: run {
                 throw HttpException(response)
             }
-        } catch (networkException: HttpException) {
+        } catch (networkException: IOException) {
             emit(NetworkResult.Error(networkException))
         }
     }.buffer()

@@ -82,7 +82,7 @@ object Dependencies {
             "org.jetbrains.kotlin:kotlin-serialization:$KOTLIN_SERIALIZATION_VERSION"
     }
 
-    object Network {
+    object Square {
         private const val OKHTTP_VERSION = "4.10.0"
         const val OKHTTP_CLIENT = "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
         const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
@@ -91,15 +91,12 @@ object Dependencies {
         const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
         const val MOSHI_CONVERTER =
             "com.squareup.retrofit2:converter-moshi:$RETROFIT_VERSION"
-    }
 
-    object Moshi {
         private const val MOSHI_VERSION = "1.13.0"
         const val MOSHI = "com.squareup.moshi:moshi-kotlin:$MOSHI_VERSION"
-
     }
 
-    object Shimmer {
+    object Facebook {
         private const val SHIMMER_VERSION = "0.5.0"
 
         const val SHIMMER = "com.facebook.shimmer:shimmer:$SHIMMER_VERSION"
